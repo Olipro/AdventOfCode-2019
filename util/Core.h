@@ -66,8 +66,14 @@ namespace AoC {
       std::ifstream file{argv[1]};
       Solver_t solver{file, std::move(extraArgs)};
       auto&& [part1, part2] = solver.Solve();
-      std::cout << "Part1 Answer: " << part1 << '\n';
-      std::cout << "Part2 Answer: " << part2 << '\n';
+      std::cout << "Part1 Answer: ";
+      if constexpr (!std::is_arithmetic_v<decltype(part1)>)
+        std::cout << '\n';
+      std::cout << part1 << '\n';
+      std::cout << "Part2 Answer: ";
+      if constexpr (!std::is_arithmetic_v<decltype(part2)>)
+        std::cout << '\n';
+      std::cout << part2 << '\n';
     } catch (const std::exception& e) {
       std::cout << "Error: " << e.what() << '\n';
       return 1;
