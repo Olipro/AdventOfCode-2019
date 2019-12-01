@@ -7,3 +7,4 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include_directories(${CMAKE_SOURCE_DIR})
 
 add_executable(day1 1/day1.cpp)
+add_executable(day2 2/day2.cpp)

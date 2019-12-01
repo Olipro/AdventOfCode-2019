@@ -18,11 +18,13 @@ namespace AoC {
   };
 
   template <typename Container>
-  [[nodiscard]] Container StreamToContainer(std::istream& in) {
+  [[nodiscard]] Container StreamToContainer(std::istream& in, char delim = '\n') {
     Container ret;
     typename Container::value_type val;
-    while (in >> val)
+    while (in >> val) {
       ret.emplace_back(val);
+      in.ignore(std::numeric_limits<std::streamsize>::max(), delim);
+    }
     return ret;
   }
 
